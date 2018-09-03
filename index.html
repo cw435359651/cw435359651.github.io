@@ -1,12 +1,81 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title></title>
-	</head>
-	<body>
-		<h1>hello world!</h1>
-	</body>
-</html>
+<!DOCTYPE html><html><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><link rel=stylesheet type=text/css href=static/rest.css><title>sswkfront</title><style type=text/css>#body{
+    		transform-origin: 0% 0% 0px;
+    	}</style><link href=/static/css/app.5a52e0193bbd31d810c8a08cbde4221d.css rel=stylesheet></head><body id=body><script src=http://libs.baidu.com/jquery/2.0.0/jquery.min.js></script><script type=text/javascript>var winWH = findDimensions();
+				var theHeight = winWH.height/(winWH.width / 1920);
+				console.log(theHeight);
+				if(winWH.width < 1920) {
+						$("#body").css({
+							"width": "1920px",
+							"height": theHeight + "px",
+							"transform-origin": "0% 0%",
+							"-ms-transform-origin": "0% 0%",
+							"-moz-transform-origin": "0% 0%",
+							"-webkit-transform-origin": "0% 0%",
+							"-o-transform-origin": "0% 0%",
+							"transform": "scale(" + winWH.width / 1920 + ")",
+							"-ms-transform": "scale(" + winWH.width / 1920 + ")",
+							"-moz-transform": "scale(" + winWH.width / 1920 + ")",
+							"-webkit-transform": "scale(" + winWH.width / 1920 + ")",
+							"-o-transform": "scale(" + winWH.width / 1920 + ")"
+						});
+					} else {
+						$("#body").removeAttr("style");
+					}
+			
+			function findDimensions(fun) //函数：获取尺寸 
+			{
+				//获取窗口宽度 
+				if(window.innerWidth)
+					winWidth = window.innerWidth;
+				else if((document.body) && (document.body.clientWidth))
+					winWidth = document.body.clientWidth;
+				//获取窗口高度 
+				if(window.innerHeight)
+					winHeight = window.innerHeight;
+				else if((document.body) && (document.body.clientHeight))
+					winHeight = document.body.clientHeight;
+				//通过深入Document内部对body进行检测，获取窗口大小 
+				if(document.documentElement && document.documentElement.clientHeight && document.documentElement.clientWidth) {
+					winHeight = document.documentElement.clientHeight;
+					winWidth = document.documentElement.clientWidth;
+				}
+				//结果输出至两个文本框 
+				winWH = {
+					"width": winWidth,
+					"height": winHeight
+				}
+				if(!!fun) {
+					console.log(winWH)
+					fun(winWidth)
+				} else {
+					return winWH;
+				}
+		
+			}
+		
 
+		$(window).resize(function() {
+				findDimensions(scalechange);
+			});
+		
+			function scalechange(width) {
+				var theHeight = winWH.height/(winWH.width / 1920);
+				if(width < 1920) {
+					$("#body").css({
+						"width": "1920px",
+						"height":theHeight+"px",
+						"transform-origin": "0% 0%",
+						"-ms-transform-origin": "0% 0%",
+						"-moz-transform-origin": "0% 0%",
+						"-webkit-transform-origin": "0% 0%",
+						"-o-transform-origin": "0% 0%",
+						"transform": "scale(" + winWH.width / 1920 + ")",
+						"-ms-transform": "scale(" + winWH.width / 1920 + ")",
+						"-moz-transform": "scale(" + winWH.width / 1920 + ")",
+						"-webkit-transform": "scale(" + winWH.width / 1920 + ")",
+						"-o-transform": "scale(" + winWH.width / 1920 + ")"
+					});
+				} else {
+					$("#body").removeAttr("style");
+				}
+			}</script><div id=app></div><script type=text/javascript src=/static/js/manifest.2ae2e69a05c33dfc65f8.js></script><script type=text/javascript src=/static/js/vendor.03816fc433dce1069f57.js></script><script type=text/javascript src=/static/js/app.20c1170017081e5b8791.js></script></body><script src="http://api.map.baidu.com/api?v=2.0&ak=UgfruY4Zph4g4rfRROEymxzWnU27zCsy" type=text/javascript charset=utf-8></script></html>
